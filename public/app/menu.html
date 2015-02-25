@@ -1,0 +1,45 @@
+<div class="mega-col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="mega-col-inner">
+        <div class="pavo-widget" id="pavowid-17">
+            <div class="pavo-widget" id="pavowid-2020963323">
+                <div class="pavo-widget">
+                    <div class="widget-heading menu-title">
+                        Restaurants
+                    </div>
+                    <div class="widget-product-list sidebar">
+                        <div class="widget-inner">
+                            <div class="w-product clearfix col-lg-1 col-md-1 col-sm-12 col-xs-12"
+                                 style="margin: 0; padding: 0" ng-repeat="obj in cart">
+                                <div class="product-block item-default" style="padding: 0;">
+
+                                    <div class="image" style="width: 100px; height: 90px">
+                                        <a class="img" >
+                                            <img width="80" height="95" ng-src="{{obj.image}}">
+                                        </a>
+                                    </div>
+
+                                    <div class="product-meta">
+                                        <h3 class="name">
+                                            <strong>{{obj.title}}</strong>
+                                            <a href ng-click="removeFromCart($index)">
+                                                <i class="glyphicon glyphicon-remove pull-right"></i>
+                                            </a>
+                                        </h3>
+                                        <div class="price">
+                                            <span>{{ calculatePrice(obj.price) | number:2}} {{currencyCode}}</span>
+                                        </div>
+                                        <div class="price" >
+                                            <input type="number" style="width: 40px" ng-model="obj.count" />
+                                            <span class="special-price pull-right">{{ calculatePrice(obj.total) | number:2}} {{currencyCode}}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

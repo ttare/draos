@@ -1,0 +1,172 @@
+<div class="row">
+    <div class="mega-col col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    <div class="mega-col-inner">
+        <div class="pavo-widget" id="pavowid-17">
+            <div class="pavo-widget" id="pavowid-2020963323">
+                <div class="pavo-widget">
+                    <div class="widget-heading menu-title">
+                        Current order
+                    </div>
+                    <div class="widget-product-list sidebar">
+                        <div class="widget-inner">
+                            <div class="w-product clearfix col-lg-1 col-md-1 col-sm-12 col-xs-12"
+                                 style="margin: 0; padding: 0"
+                                 >
+                                <div class="product-block item-default" style="padding: 0;">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Food</th>
+                                            <th>Count</th>
+                                            <th>Price</th>
+                                            <th>Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="obj in cart.food">
+                                            <td>{{obj.title}}</td>
+                                            <td>{{obj.count}}</td>
+                                            <td>{{ calculatePrice(obj.price) | number:2}} {{currencyCode}}</td>
+                                            <td>
+                                                {{ calculatePrice(obj.price*obj.count) | number:2}} {{currencyCode}}
+                                            </td>
+                                        </tr>
+                                        <tr style="font-weight: bold">
+                                            <td>TOTAL</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                {{ calculatePrice(cartTotal) | number:2}} {{currencyCode}}
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table">
+                                        <tr>
+                                            <td>Status</td>
+                                            <td>
+                                                <span class="label label-success">In progress</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <!--<div class="image" style="width: 100px; height: 90px">
+                                        <a class="img" >
+                                            <img width="80" height="95" ng-src="{{obj.image}}">
+                                        </a>
+                                    </div>
+
+                                    <div class="product-meta">
+
+                                        <h3 class="name">
+                                            <strong>{{obj.title}}</strong>
+                                            <a href ng-click="removeFromCart($index)">
+                                                <i class="glyphicon glyphicon-remove pull-right"></i>
+                                            </a>
+                                        </h3>
+                                        <div class="price">
+                                            <span>{{ calculatePrice(obj.price) | number:2}} {{currencyCode}}</span>
+                                        </div>
+                                        <div class="price" >
+                                            <input type="number" style="width: 40px" ng-model="obj.count" />
+                                            <span class="special-price pull-right">{{ calculatePrice(obj.total) | number:2}} {{currencyCode}}</span>
+                                        </div>
+                                    </div>-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="mega-col col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <div class="mega-col-inner">
+        <div class="pavo-widget" id="pavowid-17">
+            <div class="pavo-widget" id="pavowid-2020963323">
+                <div class="pavo-widget">
+                    <div class="widget-heading menu-title">
+                        Restaurant
+                        <div class="pull-right">
+                            {{remaining}}
+                        </div>
+                    </div>
+                    <div class="widget-product-list sidebar">
+                        <div class="widget-inner">
+                            <div class="w-product">
+                                <div class="product-block item-default" style="padding: 0;">
+                                    <div class="pull-right">
+                                        <strong>Mrkva</strong> <br>
+                                        Address: Curiciluk 15b <br>
+                                        Type: Cevabdzinica <br>
+                                    </div>
+                                    <div class="image" >
+                                        <img  ng-src="{{'./images/restaurants/mrkva.jpg'}}">
+                                    </div>
+                                    <button class="btn btn-success" ng-show="remaining && cart.options.created && !cart.options.delivery">Accept order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<h3 style="margin-top: 25px">Previous orders</h3>
+<div class="row">
+    <div class="mega-col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Date created</th>
+                <th>Restaurant</th>
+                <th>Total</th>
+                <th>Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Current order</td>
+                <td>Mrkva</td>
+                <td>154</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">show details</button>
+                </td>
+            </tr>
+
+            <tr ng-repeat="ord in previousOrders">
+                <td>{{ord.created}}</td>
+                <td>{{ord.restaurant}}</td>
+                <td>{{}}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">show details</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

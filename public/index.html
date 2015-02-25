@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://demopavothemes.com/pav_food_store/ -->
+<html dir="ltr" class="ltr" lang="en" ng-app="app">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <title>Online narucivanje hrane</title>
+    <base href=".">
+    <meta name="description" content="Pav FoodStore - Responsive Opencart Theme">
+    <link href="http://demopavothemes.com/pav_food_store/image/data/cart.png" rel="icon">
+
+    <link rel="stylesheet" href="Stylesheets/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="Stylesheets/stylesheet.css" type="text/css"/>
+    <link rel="stylesheet" href="Stylesheets/jquery-ui-1.8.16.custom.css" type="text/css"/>
+    <link rel="stylesheet" href="Stylesheets/animation.css" type="text/css"/>
+    <link rel="stylesheet" href="Stylesheets/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="Stylesheets/font.css" type="text/css"/>
+    <link rel="stylesheet" href="Stylesheets/pavproductcarousel.css" type="text/css"/>
+    <link rel="stylesheet" href="Stylesheets/style.css" type="text/css"/>
+    <link rel="stylesheet" href="vendor/angularjs-toaster/toaster.css" type="text/css"/>
+
+
+
+    <script type="text/javascript" src="./index_files/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="./index_files/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="./index_files/common.js"></script>
+    <script type="text/javascript" src="./index_files/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/moment/moment.js"></script>
+
+    <script type="text/javascript" src="vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="vendor/ngDraggable/ngDraggable.js"></script>
+    <script type="text/javascript" src="vendor/angular-cookies/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="vendor/angularjs-toaster/toaster.js"></script>
+    <script type="text/javascript" src="vendor/bower-angular-translate-2.5.2/angular-translate.min.js""></script>
+
+    <script type="text/javascript" src="app/ng-app.js"></script>
+    <script type="text/javascript" src="app/ng-routes.js"></script>
+</head>
+<body id="offcanvas-container" class="offcanvas-container layout-fullwidth fs12 page-home " data-twttr-rendered="true">
+<section id="page" class="offcanvas-pusher" role="main">
+    <section id="header">
+        <section id="topbar">
+            <div class="container">
+                <div class="row hidden-sm hidden-xs">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <div class="welcome pull-left" ng-show="!loggedUser.isAuth">
+                            {{'welcome' | translate}}
+                            <a ui-sref="signin"><strong>{{'login' | translate}}</strong></a> {{'or' | translate}}
+                            <a ui-sref="signup">
+                                <strong>{{'register' | translate}}</strong>
+                            </a>.
+                        </div>
+                        <div class="welcome pull-left" ng-show="loggedUser.isAuth">
+                            {{'welcome_user' | translate}}
+                            <a href><strong>{{loggedUser.first_name + ' ' + loggedUser.last_name}}</strong></a>
+                            . {{'finish_order' | translate}}
+                            <a href ng-click="logout()"><strong>{{'logout' | translate}}</strong></a>.
+                        </div>
+                        <div class="welcome pull-right" style="color: #000000" ng-show="loggedUser.isAuth && remaining && cart.options.created && !cart.options.delivery">
+                            <strong>waiting for restoraunt response: {{remaining}}. You can still edit your <a ui-sref="cart">cart</a> </strong>
+                        </div>
+                        <div class="welcome pull-right" style="color: #000000" ng-show="loggedUser.isAuth && cart.options.delivery">
+                            <strong>your order will be delivery for: {{remaining}}</strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="currency pull-right">
+                            <form>
+                                <div class="currency">
+                                    <a title="Euro" ng-click="changeCurrency('€')">€
+                                    </a>
+                                    <a title="Konvertibilna marka" ng-click="changeCurrency('KM')">KM</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="language pull-right">
+                            <div class="language">
+                                <img src="./index_files/gb.png" ng-click="changeLanguage('en')" alt="English" title="English">
+                                <img src="./index_files/bih.png" ng-click="changeLanguage('bs')" alt="Bosnia and Herzegovina" title="Bosnia and Herzegovina">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="show-mobile hidden-lg hidden-md pull-right">
+                    <div class="quick-user pull-left" ng-show="loggedUser.isAuth">
+                        <div class="quickaccess-toggle">
+                            <i class="icon-user"></i>
+                        </div>
+                        <div class="inner-toggle">
+                            <ul class="links pull-left">
+                                <li>
+                                    <a>
+                                        <span class="icon-user">{{loggedUser.first_name + ' ' + loggedUser.last_name}}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="cart">
+                                        <span class="icon-shopping-cart">{{'cart' | translate}}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="icon-power-off" ng-click="logout()">{{'logout' | translate}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="quick-access pull-left">
+                        <div class="quickaccess-toggle">
+                            <i class="icon-list"></i>
+                        </div>
+                        <div class="inner-toggle">
+                            <ul class="links pull-left">
+                                <li>
+                                    <a class="first" ui-sref="home">{{'home' | translate}}</a>
+                                </li>
+                                <li>
+                                    <a class="first" ui-sref="menu">{{'menu' | translate}}</a>
+                                </li>
+                                <li>
+                                    <a class="first" ui-sref="restaurants">{{'restaurants' | translate}}</a>
+                                </li>
+                                <li ng-hide="loggedUser.isAuth">
+                                    <a class="first" ui-sref="signin">{{'sign_in' | translate}}</a>
+                                </li>
+                                <li ng-hide="loggedUser.isAuth">
+                                    <a class="first" ui-sref="signup">{{'sign_up' | translate}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <section id="pav-mainnav">
+            <div class="container">
+                <div class="mainnav-wrap">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+                            <div class="navbar navbar-inverse">
+                                <nav class="pav-megamenu" role="navigation">
+                                    <div class="pav-megamenu">
+                                        <div class="navbar">
+                                            <div id="mainmenutop" class="megamenu" role="navigation">
+                                                <div class="navbar-header">
+                                                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                                                        <ul class="nav navbar-nav megamenu">
+                                                            <li class="home">
+                                                                <a ui-sref="home">
+                                                                    <span class="menu-title">{{'home' | translate}}</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="">
+                                                                <a ui-sref="menu"><span
+                                                                        class="menu-title">{{'menu' | translate}}</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="">
+                                                                <a ui-sref="restaurants"><span
+                                                                        class="menu-title">{{'restaurants' | translate}}</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="" ng-show="!loggedUser.isAuth">
+                                                                <a ui-sref="signin"><span
+                                                                        class="menu-title">{{'sign_in' | translate}}</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="" ng-show="!loggedUser.isAuth">
+                                                                <a ui-sref="signup"><span
+                                                                        class="menu-title">{{'sign_up' | translate}}</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+                            <div id="search" class="pull-right">
+                                <input type="text" name="search" placeholder="{{'search' | translate}}" value="">
+                                <span class="button-search"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+    <section id="columns" class="offcanvas-siderbars">
+        <div class="container">
+            <div class="row">
+
+
+                <section class="col-lg-9 col-md-9 col-sm-12 col-xs-12 main-column">
+                    <toaster-container></toaster-container>
+                    <div ui-view></div>
+                </section>
+
+
+                <div class="mega-col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="mega-col-inner">
+                        <div class="pavo-widget" id="pavowid-17">
+                            <div class="pavo-widget" id="pavowid-2020963323">
+                                <div class="pavo-widget">
+                                    <div class="widget-heading menu-title">
+                                        {{'order' | translate}}
+                                        <strong class="pull-right">{{ calculatePrice(cartTotal) | number:2}} {{currencyCode}}</strong>
+                                    </div>
+                                    <div class="widget-product-list sidebar">
+                                        <div ng-drop="true" ng-drop-success="onDropComplete1($data,$event)" class="widget-inner">
+                                            <div class="w-product clearfix col-lg-1 col-md-1 col-sm-12 col-xs-12"
+                                                 style="margin: 0; padding: 0"
+                                                 ng-drag-data="obj"
+                                                 ng-drag-success="onDragSuccess1($data,$event)"
+                                                 ng-center-anchor="{{centerAnchor}}"
+                                                 ng-repeat="obj in cart.food">
+                                                <div class="product-block item-default" style="padding: 0;">
+
+                                                    <div class="image" style="width: 100px; height: 90px">
+                                                        <a class="img" >
+                                                            <img width="80" height="95" ng-src="{{obj.image}}">
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="product-meta">
+                                                        <h3 class="name">
+                                                            <strong>{{obj.title}}</strong>
+                                                            <a href ng-click="removeFromCart($index)">
+                                                                <i class="glyphicon glyphicon-remove pull-right"></i>
+                                                            </a>
+                                                        </h3>
+                                                        <div class="price">
+                                                            <span>{{ calculatePrice(obj.price) | number:2}} {{currencyCode}}</span>
+                                                        </div>
+                                                        <div class="price" >
+                                                            <input type="number" style="width: 40px" ng-model="obj.count" min="1" ng-change="changeCount()" />
+                                                            <span class="special-price pull-right">{{ calculatePrice(obj.count*obj.price) | number:2}} {{currencyCode}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-success pull-right" ng-click="sendCart()" ng-show="cart.food.length">{{'send_cart' | translate}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<div class="mega-col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="mega-col-inner">
+        <div class="pavo-widget" id="pavowid-17">
+            <div class="pavo-widget" id="pavowid-2020963323">
+                <div class="pavo-widget">
+                    <div class="widget-heading menu-title">
+                        <div class="col-lg-4">
+                            Restaurants
+                        </div>
+                        <div class="col-lg-8">
+                            Filter by
+                            <select class="" ng-model="query.state">
+                                <option value="">state</option>
+                                <option value="Baščaršija">Baščaršija</option>
+                                <option value="Pofalici">Pofalici</option>
+                                <option value="Marijin Dvor">Marijin Dvor</option>
+                                <option value="Skenderija">Skenderija</option>
+                            </select>
+                            <select class="" ng-model="query.type">
+                                <option value="">type</option>
+                                <option value="Cevabdzinica">Cevabdzinica</option>
+                                <option value="Slastičarna">Slastičarna </option>
+                                <option value="Fast food">Fast food</option>
+                                <option value="Skenderija">Skenderija</option>
+                                <option value="Pizzeria">Pizzeria</option>
+                                <option value="Restoran">Restoran </option>
+                            </select>
+                            <select class="" ng-model="query.food">
+                                <option value="">food</option>
+                                <option value="Rostilj">Rostilj</option>
+                                <option value="Kolači">Kolači</option>
+                                <option value="Torte">Torte</option>
+                                <option value="Pizza">Pizza</option>
+                                <option value="Doner">Doner</option>
+                                <option value="Sendvici">Sendvici</option>
+                                <option value="Salate">Salate</option>
+                                <option value="Pecenje">Pecenje</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="widget-product-list sidebar">
+                        <div class="widget-inner">
+                            <div class="w-product clearfix col-lg-1 col-md-1 col-sm-12 col-xs-12"
+                                 style="margin: 0; padding: 0" ng-repeat="obj in restaurants | filter:query">
+                                <div class="product-block item-default" style="padding: 0;">
+
+                                    <div class="image" style="width: 150px; height: 90px">
+                                        <a class="img" >
+                                            <img width="80" height="95" ng-src="{{obj.image}}">
+                                        </a>
+                                    </div>
+
+                                    <div class="product-meta">
+                                        <h3 class="name">
+                                            <a href>
+                                                <strong>{{obj.title}}</strong> <br>
+                                            </a>
+                                        </h3>
+                                        {{obj.address}} <br>
+                                        {{obj.state}} <br>
+                                        {{obj.type}} <br>
+                                        [{{obj.food}}] <br>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

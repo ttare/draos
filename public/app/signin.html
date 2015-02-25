@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+    <section id="sidebar-main" class="col-md-12" style="padding: 0px">
+        <div id="content">
+        <div class="row">
+        <div class="col-sm-6">
+            <div class="well wrapper">
+                <h2>{{'new_customer' | translate}}</h2>
+                <p><strong>{{'register_acc' | translate}}</strong></p>
+                <p>{{'register_text' | translate}}</p>
+                <a ui-sref="signup" class="button btn btn-theme-default">{{'continue' | translate}}</a></div>
+        </div>
+        <div class="col-sm-6">
+            <div class="well wrapper">
+                <h2>{{'returning_cust' | translate}}</h2>
+                <p><strong>{{'returning_text' | translate}}</strong></p>
+                <form>
+                    <div class="form-group">
+                        <label class="control-label" for="input-email">E-Mail {{'address' | translate}}</label>
+                        <input type="text" name="email" ng-model="loginModel.email" value="" placeholder=" {{'E-Mail ' + 'address' | translate}}" id="input-email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="input-password">{{'password' | translate}}</label>
+                        <input type="password" name="password" ng-model="loginModel.password" placeholder="{{'password' | translate}}" id="input-password" class="form-control">
+                        <a ui-sref="forgot">{{'forgot_pwd' | translate}}</a></div>
+                    <input type="submit" value="{{'login' | translate}}" ng-click="login()" class="button btn btn-theme-default">
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section>
+
+</div>
+</div>
