@@ -46,6 +46,33 @@ app.run(function($rootScope, $timeout, $translate, stateService) {
        }
    ];
 
+    $rootScope.todayOffer = [
+        {
+            title:'Hamburger',
+            price:5,
+            cartImage:'',
+            image:'./images/hamburger.jpg'
+        }
+    ];
+
+    var otherOffer = [
+        {
+            title:'Pizza',
+            price:5,
+            cartImage:'',
+            image:'./images/pizza.jpg'
+        }
+    ];
+
+    $rootScope.menu = otherOffer.concat($rootScope.todayOffer, $rootScope.bestSeller);
+
+
+    $rootScope.filtered = $rootScope.bestSeller;
+
+    $rootScope.query = {
+        title: ''
+    };
+
 
     $rootScope.sendCart=function() {
         $rootScope.cart.options.created=moment();
@@ -254,11 +281,21 @@ app.controller('cartController', function ($rootScope, $scope, stateService, toa
 
 
 
-app.controller('userController', function ($rootScope, $scope, stateService, toaster, $state) {
+app.controller('userController', function ($rootScope, $scope, stateService, toaster, $state, $translate, $timeout) {
 
     var regModel = stateService.getRegistrationUser();
-     $scope.registrationModel = {first_name:'', last_name:'', password:'', email:'', address:'', phone:'', fax:'',
-        first_name:'', first_name:'', state:''};
+     $scope.registrationModel = {first_name:'321', last_name:'321', password:'321', email:'321', address:'321', phone:'061/434-724', state:'321'};
+
+
+    var fieldNames = {
+       'first_name': $translate.instant('first_name'),
+       'last_name': $translate.instant('last_name'),
+       'password': $translate.instant('password'),
+       'email': 'E-mail',
+       'address': $translate.instant('address'),
+       'phone': $translate.instant('telephone'),
+       'state': $translate.instant('region')
+    };
 
 
     function validateRegistration() {
@@ -267,7 +304,14 @@ app.controller('userController', function ($rootScope, $scope, stateService, toa
         angular.forEach($scope.registrationModel, function (value, key) {
             if (value === '') {
                 isValid=false;
-                errors += key + ' field is required <br>';
+                errors += fieldNames[key] + $translate.instant('field_required') + '<br>';
+            } else {
+                if (key === 'phone') {
+                    var phoneno = /^\(?([0-9]{3})\)?[-./ ]?([0-9]{3})[-. ]?([0-9]{3})$/;
+                    if (value.match(phoneno) === null) {
+                        errors += $translate.instant('wrong_format') + ' <br>';
+                    }
+                }
             }
         });
         if (!isValid) {
@@ -279,9 +323,13 @@ app.controller('userController', function ($rootScope, $scope, stateService, toa
     $scope.registerUser=function () {
         if (validateRegistration()) {
             stateService.setRegistrationUser($scope.registrationModel);
-            $state.go('signin');
+            toaster.pop('success', 'Success', $translate.instant('registrationMsg'), 5000,  'trustedHtml');
+            $timeout(function () {
+                $state.go('signin');
+            }, 4000);
+
         }
-    }
+    };
 
     $scope.loginModel = {email:'', password:''};
     function validateLogin() {

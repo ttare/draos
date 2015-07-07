@@ -3,37 +3,483 @@
         <div class="pavo-widget" id="pavowid-17">
             <div class="pavo-widget" id="pavowid-2020963323">
                 <div class="pavo-widget">
-                    <div class="widget-heading menu-title">
-                        Restaurants
-                    </div>
-                    <div class="widget-product-list sidebar">
-                        <div class="widget-inner">
-                            <div class="w-product clearfix col-lg-1 col-md-1 col-sm-12 col-xs-12"
-                                 style="margin: 0; padding: 0" ng-repeat="obj in cart">
-                                <div class="product-block item-default" style="padding: 0;">
+                    <div class=" box productcarousel">
+                        <div class="box-heading"><span><span>Menu</span></div>
+                        <div class="box-content">
+                            <div class="box-products slide" id="productcarousel1">
 
-                                    <div class="image" style="width: 100px; height: 90px">
-                                        <a class="img" >
-                                            <img width="80" height="95" ng-src="{{obj.image}}">
-                                        </a>
-                                    </div>
+                                <div class="carousel-inner ">
 
-                                    <div class="product-meta">
-                                        <h3 class="name">
-                                            <strong>{{obj.title}}</strong>
-                                            <a href ng-click="removeFromCart($index)">
-                                                <i class="glyphicon glyphicon-remove pull-right"></i>
-                                            </a>
-                                        </h3>
-                                        <div class="price">
-                                            <span>{{ calculatePrice(obj.price) | number:2}} {{currencyCode}}</span>
+                                    <div class="item active">
+                                        <div class="row box-product">
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"
+                                                 ng-repeat="bs in menu | filter: query">
+                                                <div class="product-block" ng-drag="true" ng-drag-data="bs">
+                                                    <div class="image">
+                                                        <a class="img" href>
+                                                            <img ng-src="{{bs.image}}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name">
+                                                            <a href>{{bs.title}}</a>
+                                                        </h3>
+
+                                                        <div class="price">
+                                                            {{'price' | translate}}: {{ calculatePrice(bs.price) | number:2}} <br>
+                                                        </div>
+                                                        <div class="rating">
+                                                            <img src="./index_files/stars-3(1).png" alt="Based on 1 reviews.">
+                                                        </div>
+                                                        <div class="cart">
+                                                            <input type="button" ng-click="onDropComplete1(bs)"
+                                                                   value="{{'add_to_cart' | translate}}" class="button">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="price" >
-                                            <input type="number" style="width: 40px" ng-model="obj.count" />
-                                            <span class="special-price pull-right">{{ calculatePrice(obj.total) | number:2}} {{currencyCode}}</span>
+                                    </div>
+                                    <!--<div class="item active">
+                                        <div class="row box-product">
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="product-block">
+
+
+                                                    <div class="image">
+                                                        <a class="img"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=34"><img
+                                                                src="./index_files/img-produce05-550x650.jpg" title="Fusce vestibulum"
+                                                                alt="Fusce vestibulum"></a>
+
+                                                        <a class="pav-colorbox hidden-sm hidden-xs cboxElement"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=themecontrol/product&product_id=34">Quick
+                                                            View</a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name"><a
+                                                                href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=34">
+                                                            Hamburger + pomfirt
+                                                                </a></h3>
+
+                                                        <div class="description">
+                                                            Ut adipiscing eu erat nec faucibus. Donec ultricies varius mauris ut volutpat. Cras molestie
+                                                            erat eg...
+                                                        </div>
+
+                                                        <div class="price">
+                                                            6.5 KM
+                                                        </div>
+                                                        <div class="rating"><img src="./index_files/stars-5.png" alt="Based on 1 reviews."></div>
+
+
+                                                        <div class="cart">
+                                                            <input type="button" value="Add to Cart" onclick="addToCart(&#39;34&#39;);" class="button">
+                                                        </div>
+
+                                                        <div class="wishlist"><a class="icon-heart" onclick="addToWishList(&#39;34&#39;);"
+                                                                                 data-placement="top" data-toggle="tooltip"
+                                                                                 data-original-title="Add to Wish List"><span>Add to Wish List</span></a>
+                                                        </div>
+                                                        <div class="compare"><a class="icon-retweet" onclick="addToCompare(&#39;34&#39;);"
+                                                                                data-placement="top" data-toggle="tooltip"
+                                                                                data-original-title="Add to Compare"><span>Add to Compare</span></a></div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="product-block">
+
+
+                                                    <div class="image">
+                                                        <span class="product-label-special label">{{'sale' | translate}}</span>
+                                                        <a class="img"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=30"><img
+                                                                src="./index_files/img-produce04-550x650.jpg" title="Fusce a congue"
+                                                                alt="Fusce a congue"></a>
+
+                                                        <a class="pav-colorbox hidden-sm hidden-xs cboxElement"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=themecontrol/product&product_id=30">Quick
+                                                            View</a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name"><a
+                                                                href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=30">
+                                                            Fishburger
+                                                                </a></h3>
+
+                                                        <div class="description">
+                                                            Fusce a congue purus, sit amet sollicitudin libero. In hac habitasse platea dictumst. Mauris
+                                                            eget lo...
+                                                        </div>
+
+                                                        <div class="price">
+                                                            5 KM
+                                                        </div>
+                                                        <div class="rating"><img src="./index_files/stars-4(1).png" alt="Based on 1 reviews."></div>
+
+
+                                                        <div class="cart">
+                                                            <input type="button" value="Add to Cart" onclick="addToCart(&#39;30&#39;);" class="button">
+                                                        </div>
+
+                                                        <div class="wishlist"><a class="icon-heart" onclick="addToWishList(&#39;30&#39;);"
+                                                                                 data-placement="top" data-toggle="tooltip"
+                                                                                 data-original-title="Add to Wish List"><span>Add to Wish List</span></a>
+                                                        </div>
+                                                        <div class="compare"><a class="icon-retweet" onclick="addToCompare(&#39;30&#39;);"
+                                                                                data-placement="top" data-toggle="tooltip"
+                                                                                data-original-title="Add to Compare"><span>Add to Compare</span></a></div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="product-block">
+
+
+                                                    <div class="image">
+                                                        <span class="product-label-special label">Sale</span>
+                                                        <a class="img"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=48"><img
+                                                                src="./index_files/img-produce14-550x650.jpg" title="Posuere lacus" alt="Posuere lacus"></a>
+
+                                                        <a class="pav-colorbox hidden-sm hidden-xs cboxElement"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=themecontrol/product&product_id=48">Quick
+                                                            View</a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name"><a
+                                                                href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=48">Rižoto
+                                                            </a></h3>
+
+                                                        <div class="description">
+                                                            Duis posuere lacus tellus, vitae faucibus orci porta ultrices. Praesent gravida massa vel
+                                                            consectetu...
+                                                        </div>
+
+                                                        <div class="price">
+                                                            4 KM
+                                                        </div>
+                                                        <div class="rating"><img src="./index_files/stars-4(1).png" alt="Based on 1 reviews."></div>
+
+
+                                                        <div class="cart">
+                                                            <input type="button" value="Add to Cart" onclick="addToCart(&#39;48&#39;);" class="button">
+                                                        </div>
+
+                                                        <div class="wishlist"><a class="icon-heart" onclick="addToWishList(&#39;48&#39;);"
+                                                                                 data-placement="top" data-toggle="tooltip"
+                                                                                 data-original-title="Add to Wish List"><span>Add to Wish List</span></a>
+                                                        </div>
+                                                        <div class="compare"><a class="icon-retweet" onclick="addToCompare(&#39;48&#39;);"
+                                                                                data-placement="top" data-toggle="tooltip"
+                                                                                data-original-title="Add to Compare"><span>Add to Compare</span></a></div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="product-block">
+
+
+                                                    <div class="image">
+                                                        <a class="img"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=44"><img
+                                                                src="./index_files/img-produce07-550x650.jpg" title="Mattis augue" alt="Mattis augue"></a>
+
+                                                        <a class="pav-colorbox hidden-sm hidden-xs cboxElement"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=themecontrol/product&product_id=44">Quick
+                                                            View</a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name"><a
+                                                                href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=44">Sendvič puretina
+                                                            </a></h3>
+
+                                                        <div class="description">
+
+                                                            Fusce a congue purus, sit amet sollicitudin libero. In hac habitasse platea dictumst. Mauris
+                                                            eget ...
+                                                        </div>
+
+                                                        <div class="price">
+                                                            3.5 KM
+                                                        </div>
+                                                        <div class="rating"><img src="./index_files/stars-4(1).png" alt="Based on 1 reviews."></div>
+
+
+                                                        <div class="cart">
+                                                            <input type="button" value="Add to Cart" onclick="addToCart(&#39;44&#39;);" class="button">
+                                                        </div>
+
+                                                        <div class="wishlist"><a class="icon-heart" onclick="addToWishList(&#39;44&#39;);"
+                                                                                 data-placement="top" data-toggle="tooltip"
+                                                                                 data-original-title="Add to Wish List"><span>Add to Wish List</span></a>
+                                                        </div>
+                                                        <div class="compare"><a class="icon-retweet" onclick="addToCompare(&#39;44&#39;);"
+                                                                                data-placement="top" data-toggle="tooltip"
+                                                                                data-original-title="Add to Compare"><span>Add to Compare</span></a></div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
+                                    <div class="item ">
+                                        <div class="row box-product">
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="product-block">
 
+
+                                                    <div class="image">
+                                                        <a class="img"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=32"><img
+                                                                src="./index_files/img-produce11-550x650.jpg" title="Nulla vitae convallis"
+                                                                alt="Nulla vitae convallis"></a>
+
+                                                        <a class="pav-colorbox hidden-sm hidden-xs cboxElement"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=themecontrol/product&product_id=32">Quick
+                                                            View</a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name"><a
+                                                                href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=32">Nulla
+                                                            vitae convallis</a></h3>
+
+                                                        <div class="description">
+                                                            Morbi ullamcorper leo nec tempus molestie. Mauris sagittis tortor nec sollicitudin lobortis. Ut
+                                                            adip...
+                                                        </div>
+
+                                                        <div class="price">
+                                                            $119.50
+                                                        </div>
+                                                        <div class="rating"><img src="./index_files/stars-2(1).png" alt="Based on 1 reviews."></div>
+
+
+                                                        <div class="cart">
+                                                            <input type="button" value="Add to Cart" onclick="addToCart(&#39;32&#39;);" class="button">
+                                                        </div>
+
+                                                        <div class="wishlist"><a class="icon-heart" onclick="addToWishList(&#39;32&#39;);"
+                                                                                 data-placement="top" data-toggle="tooltip"
+                                                                                 data-original-title="Add to Wish List"><span>Add to Wish List</span></a>
+                                                        </div>
+                                                        <div class="compare"><a class="icon-retweet" onclick="addToCompare(&#39;32&#39;);"
+                                                                                data-placement="top" data-toggle="tooltip"
+                                                                                data-original-title="Add to Compare"><span>Add to Compare</span></a></div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="product-block">
+
+
+                                                    <div class="image">
+                                                        <a class="img"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=29"><img
+                                                                src="./index_files/img-produce12-550x650.jpg" title="Sapien euismod"
+                                                                alt="Sapien euismod"></a>
+
+                                                        <a class="pav-colorbox hidden-sm hidden-xs cboxElement"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=themecontrol/product&product_id=29">Quick
+                                                            View</a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name"><a
+                                                                href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=29">Sapien
+                                                            euismod</a></h3>
+
+                                                        <div class="description">
+                                                            Placerat dui sit amet sapien euismod porttitor. Nulla a sagittis nunc. Integer id dui odio.
+                                                            Lorem ip...
+                                                        </div>
+
+                                                        <div class="price">
+                                                            $330.99
+                                                        </div>
+                                                        <div class="rating"><img src="./index_files/stars-4(1).png" alt="Based on 1 reviews."></div>
+
+
+                                                        <div class="cart">
+                                                            <input type="button" value="Add to Cart" onclick="addToCart(&#39;29&#39;);" class="button">
+                                                        </div>
+
+                                                        <div class="wishlist"><a class="icon-heart" onclick="addToWishList(&#39;29&#39;);"
+                                                                                 data-placement="top" data-toggle="tooltip"
+                                                                                 data-original-title="Add to Wish List"><span>Add to Wish List</span></a>
+                                                        </div>
+                                                        <div class="compare"><a class="icon-retweet" onclick="addToCompare(&#39;29&#39;);"
+                                                                                data-placement="top" data-toggle="tooltip"
+                                                                                data-original-title="Add to Compare"><span>Add to Compare</span></a></div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="product-block">
+
+
+                                                    <div class="image">
+                                                        <a class="img"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=31"><img
+                                                                src="./index_files/img-produce06-550x650.jpg" title="Ligula ullamcorper"
+                                                                alt="Ligula ullamcorper"></a>
+
+                                                        <a class="pav-colorbox hidden-sm hidden-xs cboxElement"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=themecontrol/product&product_id=31">Quick
+                                                            View</a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name"><a
+                                                                href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=31">Ligula
+                                                            ullamcorper</a></h3>
+
+                                                        <div class="description">
+                                                            Pellentesque et ligula ullamcorper, molestie leo vel, commodo arcu. Proin non quam nec orci
+                                                            viverra ...
+                                                        </div>
+
+                                                        <div class="price">
+                                                            $96.00
+                                                        </div>
+                                                        <div class="rating"><img src="./index_files/stars-3(1).png" alt="Based on 1 reviews."></div>
+
+
+                                                        <div class="cart">
+                                                            <input type="button" value="Add to Cart" onclick="addToCart(&#39;31&#39;);" class="button">
+                                                        </div>
+
+                                                        <div class="wishlist"><a class="icon-heart" onclick="addToWishList(&#39;31&#39;);"
+                                                                                 data-placement="top" data-toggle="tooltip"
+                                                                                 data-original-title="Add to Wish List"><span>Add to Wish List</span></a>
+                                                        </div>
+                                                        <div class="compare"><a class="icon-retweet" onclick="addToCompare(&#39;31&#39;);"
+                                                                                data-placement="top" data-toggle="tooltip"
+                                                                                data-original-title="Add to Compare"><span>Add to Compare</span></a></div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="product-block">
+
+
+                                                    <div class="image">
+                                                        <span class="product-label-special label">Sale</span>
+                                                        <a class="img"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=28"><img
+                                                                src="./index_files/img-produce10-550x650.jpg" title="Morbi ullamcorper"
+                                                                alt="Morbi ullamcorper"></a>
+
+                                                        <a class="pav-colorbox hidden-sm hidden-xs cboxElement"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=themecontrol/product&product_id=28">Quick
+                                                            View</a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name"><a
+                                                                href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=28">Morbi
+                                                            ullamcorper</a></h3>
+
+                                                        <div class="description">
+                                                            Morbi ullamcorper leo nec tempus molestie. Mauris sagittis tortor nec sollicitudin lobortis. Ut
+                                                            adip...
+                                                        </div>
+
+                                                        <div class="price">
+                                                            <span class="price-old">$119.50</span> <span class="price-new">$96.00</span>
+                                                        </div>
+                                                        <div class="rating"><img src="./index_files/stars-2(1).png" alt="Based on 1 reviews."></div>
+
+
+                                                        <div class="cart">
+                                                            <input type="button" value="Add to Cart" onclick="addToCart(&#39;28&#39;);" class="button">
+                                                        </div>
+
+                                                        <div class="wishlist"><a class="icon-heart" onclick="addToWishList(&#39;28&#39;);"
+                                                                                 data-placement="top" data-toggle="tooltip"
+                                                                                 data-original-title="Add to Wish List"><span>Add to Wish List</span></a>
+                                                        </div>
+                                                        <div class="compare"><a class="icon-retweet" onclick="addToCompare(&#39;28&#39;);"
+                                                                                data-placement="top" data-toggle="tooltip"
+                                                                                data-original-title="Add to Compare"><span>Add to Compare</span></a></div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="item ">
+                                        <div class="row box-product">
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                <div class="product-block">
+
+
+                                                    <div class="image">
+                                                        <span class="product-label-special label">Sale</span>
+                                                        <a class="img"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=41"><img
+                                                                src="./index_files/img-produce08-550x650.jpg" title="Praesent porttitor"
+                                                                alt="Praesent porttitor"></a>
+
+                                                        <a class="pav-colorbox hidden-sm hidden-xs cboxElement"
+                                                           href="http://demopavothemes.com/pav_food_store/index.php?route=themecontrol/product&product_id=41">Quick
+                                                            View</a>
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <h3 class="name"><a
+                                                                href="http://demopavothemes.com/pav_food_store/index.php?route=product/product&product_id=41">Praesent
+                                                            porttitor</a></h3>
+
+                                                        <div class="description">
+                                                            Praesent porttitor placerat dignissim. Sed commodo justo vel quam condimentum, sit amet pulvinar
+                                                            ips...
+                                                        </div>
+
+                                                        <div class="price">
+                                                            <span class="price-old">$119.50</span> <span class="price-new">$72.50</span>
+                                                        </div>
+                                                        <div class="rating"><img src="./index_files/stars-3(1).png" alt="Based on 1 reviews."></div>
+
+
+                                                        <div class="cart">
+                                                            <input type="button" value="Add to Cart" onclick="addToCart(&#39;41&#39;);" class="button">
+                                                        </div>
+
+                                                        <div class="wishlist"><a class="icon-heart" onclick="addToWishList(&#39;41&#39;);"
+                                                                                 data-placement="top" data-toggle="tooltip"
+                                                                                 data-original-title="Add to Wish List"><span>Add to Wish List</span></a>
+                                                        </div>
+                                                        <div class="compare"><a class="icon-retweet" onclick="addToCompare(&#39;41&#39;);"
+                                                                                data-placement="top" data-toggle="tooltip"
+                                                                                data-original-title="Add to Compare"><span>Add to Compare</span></a></div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>

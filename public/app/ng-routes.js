@@ -76,7 +76,12 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider) {
         your_pwd:'Your Password',
         confirm_pwd:'Password Confirm',
         accept:'I have read and agree to the ',
-        privacy:'Privacy Policy'
+        privacy:'Privacy Policy',
+        field_required: ' field is required',
+        wrong_format: 'Wrong format for telephone field. (example: 061/444-555)',
+        registrationMsg: 'Successfull registration, will be redirected to login page soon',
+        today: 'Today',
+        offer: 'offer'
     });
     $translateProvider.translations('bs', {
         welcome: 'Dobrodošao posjetioče, trenutno se mozete',
@@ -98,6 +103,7 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider) {
         order: 'Narudžba',
         price:'CIJENA',
         send_order: 'Pošalji narudžbu',
+        send_cart: 'Pošalji narudžbu',
         add_to_cart: 'Naruči',
         sale: 'POPUST',
         most: 'Najjj',
@@ -117,14 +123,18 @@ app.config(function($stateProvider, $urlRouterProvider, $translateProvider) {
         first_name:'Ime',
         last_name:'Prezime',
         telephone:'Telefon',
-        fax:'Faks',
         your_address:'Vaša adresa',
         company:'Kompanija',
         region:'Regija/Naselje',
         your_pwd:'Vaša lozinka',
         confirm_pwd:'Potvrda lozinke',
         accept:'Pročitao sam i slažem se sa ',
-        privacy:'izjavom o privatnosti'
+        privacy:'izjavom o privatnosti',
+        field_required: ' polje je obavezno',
+        wrong_format: 'Pogresan format za polje Telefon. (primjer: 061/444-555)',
+        registrationMsg: 'Uspjesna registracija, uskoro cete biti prebaceni na login page',
+        today: 'Danasnja',
+        offer: 'ponuda'
     });
     $translateProvider.preferredLanguage('en');
 

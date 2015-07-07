@@ -41,7 +41,7 @@
     <script type="text/javascript" src="app/ng-app.js"></script>
     <script type="text/javascript" src="app/ng-routes.js"></script>
 </head>
-<body id="offcanvas-container" class="offcanvas-container layout-fullwidth fs12 page-home " data-twttr-rendered="true">
+<body id="offcanvas-container" class="offcanvas-container layout-fullwidth fs15 page-home " data-twttr-rendered="true">
 <section id="page" class="offcanvas-pusher" role="main">
     <section id="header">
         <section id="topbar">
@@ -193,8 +193,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
                             <div id="search" class="pull-right">
-                                <input type="text" name="search" placeholder="{{'search' | translate}}" value="">
-                                <span class="button-search"></span>
+                                <input type="text" ng-model="query.title" placeholder="{{'search' | translate}}" value="">
                             </div>
                         </div>
                     </div>
@@ -256,7 +255,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-success pull-right" ng-click="sendCart()" ng-show="cart.food.length">{{'send_cart' | translate}}</button>
+                                            <button class="btn btn-success pull-right" ng-click="sendCart()" ng-show="cart.food.length">{{'send_order' | translate}}</button>
                                         </div>
                                     </div>
                                 </div>

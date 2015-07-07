@@ -43,12 +43,12 @@ a img {
 }
 a:hover {
   text-decoration: none;
-  color: #c83a3a;
+  color: #0055FF;
 }
 a:focus {
   outline: none;
   outline-offset: -2px;
-  color: #c83a3a;
+  color: #0055FF;
 }
 img {
   border: 0 none;
@@ -244,7 +244,7 @@ input.button {
 .button:hover,
 input.button:hover {
   -webkit-box-shadow: 0 0 0 30px #c83a3a inset;
-  box-shadow: 0 0 0 30px #c83a3a inset;
+  box-shadow: 0 0 0 30px #0055FF inset;
   color: #fff;
 }
 a.button {
