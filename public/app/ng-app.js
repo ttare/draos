@@ -43,26 +43,136 @@ app.run(function($rootScope, $timeout, $translate, stateService) {
            price:5,
            cartImage:'',
            image:'./images/hamburger.jpg'
-       }
-   ];
+       },
+	   {
+		   title:'Omlet',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/omlet.jpg'
+		},
+		{
+		   title:'Rolovana piletina',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/rolovana-piletina.jpg'
+		},
+		{
+		   title:'Pileci file',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/pileci-file.jpg'
+		},
+		{
+		   title:'Sudzukice',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/sudzukice.jpg'
+		}
+	   ];
 
     $rootScope.todayOffer = [
         {
-            title:'Hamburger',
-            price:5,
-            cartImage:'',
-            image:'./images/hamburger.jpg'
-        }
-    ];
+           title:'Svarcvald visnja',
+           price:5,
+           cartImage:'',
+           image:'./images/svarcvald visnja.jpg'
+       },
+       {
+           title:'Kapri',
+           price:5,
+           cartImage:'',
+           image:'./images/kapri.jpg'
+       },
+       {
+           title:'Nugat',
+           price:5,
+           cartImage:'',
+           image:'./images/nugat.jpg'
+       },
+       {
+           title:'Jafa',
+           price:5,
+           cartImage:'',
+           image:'./images/jafa.jpg'
+       },
+	   {
+		   title:'Ness cafee',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/ness cafee.jpg'
+		},
+		{
+		   title:'Cedevita',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/cedevita.jpg'
+		},
+		{
+		   title:'Coca cola',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/cocacola.jpg'
+		},
+		{
+		   title:'Cappy',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/capy.jpg'
+		}
+	   ];
+
 
     var otherOffer = [
         {
-            title:'Pizza',
-            price:5,
-            cartImage:'',
-            image:'./images/pizza.jpg'
-        }
-    ];
+           title:'Coko trio',
+           price:5,
+           cartImage:'',
+           image:'./images/coko trio.jpg'
+       },
+       {
+           title:'Kesten',
+           price:5,
+           cartImage:'',
+           image:'./images/kesten.jpg'
+       },
+       {
+           title:'Malina plazma',
+           price:5,
+           cartImage:'',
+           image:'./images/malina plazma.jpg'
+       },
+       {
+           title:'Aleksandar',
+           price:5,
+           cartImage:'',
+           image:'./images/aleksandar.jpg'
+       },
+	   {
+		   title:'Cokoladni tart',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/cokoladni tart.jpg'
+		},
+		{
+		   title:'Muffins',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/muffins.jpg'
+		},
+		{
+		   title:'Cijedjena narandza',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/cijedjena narandza.jpg'
+		},
+		{
+		   title:'Limunada',
+		   price:5,
+		   cartImage:'',
+		   image:'./images/limunada.jpg'
+		}
+	   ];
+
 
     $rootScope.menu = otherOffer.concat($rootScope.todayOffer, $rootScope.bestSeller);
 

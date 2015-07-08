@@ -1303,8 +1303,8 @@ body.layout-boxed-lg #page {
   filter: alpha(opacity=100);
 }
 .product-block:hover .cart input {
-  -webkit-box-shadow: 0 0 0 30px #c83a3a inset;
-  box-shadow: 0 0 0 30px #c83a3a inset;
+  -webkit-box-shadow: 0 0 0 30px #ffa500 inset;
+  box-shadow: 0 0 0 30px #ffa500 inset;
   background-color: #c83a3a \9;
 }
 .product-block:hover .product-zoom {
