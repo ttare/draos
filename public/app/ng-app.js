@@ -394,7 +394,7 @@ app.controller('cartController', function ($rootScope, $scope, stateService, toa
 app.controller('userController', function ($rootScope, $scope, stateService, toaster, $state, $translate, $timeout) {
 
     var regModel = stateService.getRegistrationUser();
-     $scope.registrationModel = {first_name:'321', last_name:'321', password:'321', email:'321', address:'321', phone:'061/434-724', state:'321'};
+     $scope.registrationModel = {first_name:'', last_name:'', password:'', email:'', address:'', phone:'', state:''};
 
 
     var fieldNames = {
